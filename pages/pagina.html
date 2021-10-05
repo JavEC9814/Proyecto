@@ -6,33 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pagina</title>
     <link rel="stylesheet" href="../assets/css/estilos.css">
-
+    
 
 </head>
 
-<body >
+<body class="body">
 
-
-    <div class="fondo">
-        <form class="form" onsubmit="getData()">
-            <input type="text" id="idusu" placeholder="Digite su usuario" required>
-            <input type="password" id="idpass" placeholder="Digite su contraseña" required>
-            <input type="submit">
+    <div class="tabl">
+        <div><img class="logo"  src = "../assets/img/Logo.JPG"></div>
+        <div class="ccan"><img class ="can" src = "../assets/img/candado.png"></div>
+        <form class="log" onsubmit="getData()">
+            <input class="spa" type="text" id="idusu" placeholder="Digite su usuario" required>
+            <input class="spa" type="password" id="idpass" placeholder="Digite su contraseña" required>
+            <input class="bt" type="submit">
+            <p><a href=""> ¿Olvido su contraseña?</a></p>
         </form>
+       
+
+
+
     </div>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <td>Codigo</td><td>Nombre</td>
-                </tr>
-            </thead>
-            <tr>
-                <td>001</td>
-                <td>Diego</td>
-            </tr>
-        </table>
-    </div>
+
     <script src="/assets/js/funciones.js"></script>
 </body>
 </html>
