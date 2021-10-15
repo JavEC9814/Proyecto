@@ -11,15 +11,16 @@
 <body>
 
 <div class="tabl">
-        <div><img class="logo"  src = "../assets/img/Logo.JPG"></div>
+        <div><img class="logo"  src = "../assets/img/Logo.JPG"></div>   
         <div class="ccan"><img class ="can" src = "../assets/img/usuario.png"></div>
-        <form class="sign" href="signup_Solmedi.html" method="post">
+        <form class="sign" action="../../Proyecto/php/signup.php"  method="POST">
+
             <input class="spa" type="text" name="tusu" placeholder="Digite el tipo de usuario" required>
             <input class="spa" type="email" name="email" placeholder="Digite su correo" required>
             <input class="spa" type="text" name="usu" placeholder="Digite su nombre" required>
             <input class="spa" type="password" name="pass" placeholder="Digite su contraseña" required>
             <input class="bt" type="submit" value="Enviar">
-            <p><a href="../pages/Login_Solmedi.html">Iniciar sesion</a></p>
+            <p><a href="../../Proyecto/index.html">Iniciar sesion</a></p>
         </form>
     </div>
 </body>

@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto - Solmedi</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Solmedi</title>
+        <link rel="stylesheet" href="../Proyecto/assets/css/estilos.css">
+        <link rel="shorcut icon" type="image/x-icon"
+            href="../Proyecto/assets/img/pestaña.JPG">
+    </head>
 
-<br>
-<body>
-</body>
+    <body>
 
-</html> 
+        <div class="tabl">
+            <div><img class="logo" src="../Proyecto/assets/img/Logo.JPG"></div>
+            <div class="ccan"><img class="can" src="../Proyecto/assets/img/candado.png"></div>
+
+            <form class="log" action="../Proyecto/php/login.php" method="post">
+
+                <input class="spa" type="text" name="usuario" placeholder="Digite su usuario" required>
+
+                <input class="spa" type="password" name="contraseña"
+                    placeholder="Digite su contraseña" required>
+
+                <input class="bt" type="submit" value="Entrar">
+
+                <p><a href="../Proyecto/pages/recuperar_Solmedi.html"> ¿Olvido su contraseña?</a><a href=""> / </a><a
+                        href="../Proyecto/pages/signup_Solmedi.html">Registrarse</a></p>
+            </form>
+        </div>
+    </body>
+</html>

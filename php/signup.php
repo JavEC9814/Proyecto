@@ -1,53 +1,54 @@
 <?php
-    $conn=mysqli_connect("localhost","root","","solmedi");
+    include 'Database.php';
+    $tipo_usuario = $_POST['tusu'];
+    $correo_usuario = $_POST['email'];
+    $nombre_usuario = $_POST['usu'];
+    $password = $_POST['pass'];
+    
+    $sql = "INSERT INTO usuario (tipo_usuario, correo_usuario, nombre_usuario, contraseña) 
+            VALUES ('$tipo_usuario','$correo_usuario','$nombre_usuario','$password')";
 
-    $message = '';
+    $ver_correo = mysqli_query($conn, "SELECT * FROM usuario WHERE correo_usuario = '$correo_usuario'");
+    $ver_usuario = mysqli_query($conn, "SELECT * FROM usuario WHERE nombre_usuario = '$nombre_usuario'");
 
-    if (!empty($_POST['tusu']) && !empty($_POST['email']) && !empty($_POST['usu']) && !empty($_POST['pass'])){
-        $sql = "INSERT INTO `usuario` (tipo_usuario, correo_usuario, nombre_usuario, contraseña) VALUES (:tipo_usuario, :correo_usuario, :nombre_usuario, :contraseña)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':tipo_usuario',$_POST['tusu']);
-        $stmt->bindParam(':correo_usuario',$_POST['email']);
-        $stmt->bindParam(':nombre_usuario',$_POST['usu']);
-        $password = password_hash($_POST['pass'], PASSWORD_BCRYPT);
-        $stmt->bindParam(':contraseña', $password);
+    if(mysqli_num_rows($ver_correo) > 0){
+      echo'
+      <script>
+      alert("Correo ya registrado, intente nuevamente")
+      window.location = "../../Proyecto/index.html"
+      </script>
+      ';
+      exit();
+    }
 
-       /* if ($stmt->execute()) {
-            $message = 'Successfully created new user';
-          } else {
-            $message = 'Sorry there must have been an issue creating your account';
-          }*/
+    if(mysqli_num_rows($ver_usuario) > 0){
+      echo'
+      <script>
+      alert("Usuario ya registrado, intente nuevamente")
+      window.location = "../../Proyecto/index.html"
+      </script>
+      ';
+      exit();
+    }
 
-        }
+    $ejecu = mysqli_query($conn, $sql);
+
+    if($ejecu){
+      echo '
+      <script>
+        alert("Datos agregados correctamente")
+        window.location = "../../Proyecto/index.html"
+      </script>
+      ';
+  
+  }else{
+    echo '
+    <script>
+      alert("Eror - No fue posible cargar los datos - intente nuevamente")
+      window.location = "../../Proyecto/index.html"
+    </script>
+    
+    ';
+  }
+  mysqli_close($conn);
 ?> 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/estilos.css">
-    <link rel="shorcut icon" type="image/x-icon" href="../assets/img/pestaña.JPG"> 
-    <title>Solmedi</title>
-</head>
-<body>
-
-    <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
-    <?php endif; ?>
-
-<div class="tabl">
-        <div><img class="logo"  src = "../assets/img/Logo.JPG"></div>
-        <div class="ccan"><img class ="can" src = "../assets/img/usuario.png"></div>
-        <form class="sign" action="signup.php" method="post">
-            <input class="spa" type="text" name="tusu" placeholder="Digite el tipo de usuario" required>
-            <input class="spa" type="email" name="email" placeholder="Digite su correo" required>
-            <input class="spa" type="text" name="usu" placeholder="Digite su nombre" required>
-            <input class="spa" type="password" name="pass" placeholder="Digite su contraseña" required>
-            <input class="bt" type="submit" value="Enviar">
-            <p><a href="login.php">Iniciar sesion</a></p>
-        </form>
-    </div>
-</body>
-</html>

@@ -1,5 +1,5 @@
 <?php
-$conn=mysqli_connect("localhost","root","","solmedi");
+include 'Database.php';
 $usuario=$_POST['usuario'];
 $contraseña=$_POST['contraseña'];
 session_start();
@@ -13,21 +13,20 @@ $filas=mysqli_num_rows($resultado);
 
 if($filas){
   
-    header("location:../pages/inicio_Solmedi.html");
+    header("location:../../Proyecto/pages/inicio_Solmedi.html");
 
 }else{
   echo '
   <script>
-    alert("Datos incorrectos - Por favor verifique nuevamente")
+    alert("Datos incorrectos - Por favor verifique nuevamente o registrese en el siguiente formato")
   </script>
   
   '
     ?>
     <?php
-    include("../pages/Login_Solmedi.html");
+    include("../../Proyecto/pages/signup_Solmedi.html");
 
   ?>
-  <!--<h1 class="bad">Datos incorrectos - Por favor verifique nuevamente</h1>
   <?php
 }
 mysqli_free_result($resultado);
