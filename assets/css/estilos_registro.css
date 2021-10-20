@@ -1,0 +1,11 @@
+#div1{
+    height: 100%;
+    width: 75%;
+    margin:auto;
+    float: left;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+#div2{
+    float: left;
+}
