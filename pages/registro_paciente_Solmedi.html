@@ -10,7 +10,7 @@
             rel="stylesheet"
             integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
             crossorigin="anonymous">
-
+            <link rel="shorcut icon" type="image/x-icon" href="../assets/img/pestaña.JPG"> 
         <link rel="stylesheet" href="../assets/css/estilos_registro.css"> 
 
         <title>Solmedi</title>
@@ -117,22 +117,32 @@
           </div>
 
         <div id="div1">
-            <form class="row g-3">
+            <form class="row g-3" action="../php/registro_datos.php"  method="POST">
+              <div class="col-md-2">
+                <label for="inputState" class="form-label" >Tipo de documento</label>
+                <select id="inputState" class="form-select" name="docu" required>
+                  <option selected>seleccione el tipo de documento</option>
+                  <option >Cedula de Ciudadania</option>
+                  <option >Targeta de Identidad</option>
+                  <option >Registro Civil</option>
+                  <option >otro</option>
+                </select>
+              </div>
                 <div class="col-md-2">
-                  <label for="inputAddress" class="form-label">documento del paciente</label>
-                  <input type="number" class="form-control" id="inputAddress" placeholder="">
+                  <label for="inputAddress" class="form-label" required>Documento del paciente</label>
+                  <input type="number" class="form-control" id="inputAddress" placeholder="Numero de documento" name="numdoc" required>
                 </div>
                 <div class="col-md-2">
-                  <label for="id" class="form-label">Nombre paciente</label>
-                  <input type="text" class="form-control" id="Id">
+                  <label for="id" class="form-label">Nombres paciente</label>
+                  <input type="text" class="form-control" id="Id" name="nom" required >
                 </div>
                 <div class="col-md-2">
-                  <label for="Usuario" class="form-label">Apellido paciente</label>
-                  <input type="text" class="form-control" id="inputUser">
+                  <label for="Usuario" class="form-label">Apellidos paciente</label>
+                  <input type="text" class="form-control" id="inputUser" name="apell" required>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <label for="inputState" class="form-label">Genero</label>
-                    <select id="inputState" class="form-select">
+                    <select id="inputState" class="form-select" name="gen" required>
                       <option selected>Seleccionar genero</option>
                       <option>Hombre</option>
                       <option>Mujer</option>
@@ -141,24 +151,24 @@
                   </div>
                 <div class="col-md-6">
                   <label for="inputCity" class="form-label">Fecha de nacimiento</label>
-                  <input type="date" class="form-control" id="inputCity">
+                  <input type="date" class="form-control" id="inputCity" name="naci" required>
                 </div>
                 <div class="col-md-2">
                     <label for="inputAddress" class="form-label">telefono paciente</label>
-                    <input type="number" class="form-control" id="inputAddress" >
+                    <input type="number" class="form-control" id="inputAddress" name="tel" required>
                 </div>
 
                 <div class="col-md-2">
-                    <label for="direccion" class="form-label">Dirección paciente</label>
-                    <input type="text" class="form-control" id="inputDireccion">
+                    <label for="direccion" class="form-label" required>Dirección paciente</label>
+                    <input type="text" class="form-control" id="inputDireccion" name="direc" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="inputState" class="form-label">EPS</label>
-                    <select id="inputState" class="form-select">
+                    <label required="" for="inputState" class="form-label">EPS</label>
+                    <select id="inputState" class="form-select" name="eps" required>
                       <option selected>Seleccionar una EPS</option>
-                      <option>Famisanar</option>
-                      <option>Compensar</option>
-                      <option>Nuevaeps</option>
+                      <option required>Famisanar</option>
+                      <option required>Compensar</option>
+                      <option required>Nuevaeps</option>
                     </select>
                   </div>
                 <div class="col-12">
@@ -170,7 +180,9 @@
                   </div>
                 </div>
                 <div class="col-12">
-                    <button type="button" class="btn btn-outline-dark">Siguiente</button>
+                  <input class="btn btn-outline-dark" type="submit" value="Siguiente">
+                    <!--<a class="btn btn-outline-dark" href="../../Proyecto/pages/registro_datos_Solmedi.html">Siguiente</a>-->
+                    <!--<button type="button" class="btn btn-outline-dark" href="../../Proyecto/pages/recuperar_Solmedi.html">Siguiente</button>-->
                     <button type="button" class="btn btn-outline-dark">Actualizar</button>
                     <button type="button" class="btn btn-outline-dark">Consultar</button>
                 </div>

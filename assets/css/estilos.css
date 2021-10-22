@@ -1,5 +1,5 @@
 .fondo{
-    background: url(/assets/img/fondo.jpg);
+    background: url(../../assets/img/fondo.jpg);
     background-position:auto;
     background-size: 100%;
     font-family: sans-serif;
@@ -72,7 +72,6 @@
     background-size: 10%;
 }
 
-
 .spa{
     width: 100%;
     background:rgb(255, 255, 255);
@@ -98,10 +97,10 @@
     box-sizing: border-box;
     color: white; 
 }
+
 .bt:hover{
     background: rgb(3, 163, 131);
 }
-
 
 a{
     font-size:18px;
@@ -116,7 +115,6 @@ a{
     color: rgb(0, 0, 0);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-decoration: none;
-
 }
 
 .div1{
